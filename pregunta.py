@@ -25,9 +25,8 @@ def clean_data():
 
 
     df['monto_del_credito'] = df['monto_del_credito'].str.replace(',', '').str.replace('$', '', regex=False).str.replace(' ', '').astype(float)
-    df['fecha_de_beneficio'] = pd.to_datetime(df['fecha_de_beneficio'])
-    df['fecha_de_beneficio'] = df['fecha_de_beneficio'].dt.strftime('%d/%m/%Y')
-    #df['fecha_de_beneficio'] = pd.to_datetime(df['fecha_de_beneficio'], dayfirst=True)
+    
+    df['fecha_de_beneficio'] = pd.to_datetime(df['fecha_de_beneficio'], dayfirst=True)
 
     df = df.drop_duplicates().dropna()
 
